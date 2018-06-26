@@ -11,7 +11,9 @@ class RequestWrapper:
     base_url = 'https://cms-gen-dev.cern.ch/xsdb'
     api_url = base_url + '/api'
 
-    subprocess.call(['bash', 'getCookie.sh'])
+    os.path.dirname(os.path.realpath(__file__))
+
+    subprocess.call(['bash', os.path.join(os.path.dirname(os.path.realpath(__file__)), 'getCookie.sh')])
 
     c = pycurl.Curl()
     c.setopt(pycurl.FOLLOWLOCATION, 1)
